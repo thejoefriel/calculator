@@ -49,14 +49,14 @@ let num = document.querySelectorAll(".num-button");
 
 // Add decimal
 let decimal = document.getElementById("decimal")
-let testRegex = /\./;
+let decimalRegex = /\./;
 
 decimal.addEventListener("click", function() {
     if(output == "" || screen.innerHTML == 0 || equal == true) {
         screen.innerHTML = "0.";
         output = "0.";
         equal = false;
-    } else if(testRegex.test(output) != true) {
+    } else if(decimalRegex.test(output) != true) {
         output = screen.innerHTML.concat(".");
         screen.innerHTML = output;
     }
@@ -122,6 +122,22 @@ plusMinus.addEventListener("click", function() {
     } else {
         output = screen.innerHTML.substring(1);
         screen.innerHTML = output;
+    }
+})
+
+// percent operation
+let percent = document.getElementById("percent")
+let percentRegex = /^[0\.]/;
+
+percent.addEventListener("click", function() {
+    if(output == 0) {
+        false;
+    } else if(percentRegex.test(output) == true) {
+        screen.innerHTML = output.replace("0.", "0.00");
+        output = screen.innerHTML;
+    } else {
+        screen.innerHTML = output/100;
+        output = screen.innerHTML;
     }
 })
 
