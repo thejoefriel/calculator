@@ -10,10 +10,18 @@ let num = document.querySelectorAll(".num-button");
              if(output.length == 0) {
                 screen.innerHTML = num[i].value;
                 output = num[i].value;
+                if(num[i].id === "zero") {
+                    screen.innerHTML = 0;
+                    output = "";
+                }
             } else if(equal == true && store == "") {
                 screen.innerHTML = num[i].value;
                 output = num[i].value;
                 equal = false;
+                if(num[i].id === "zero") {
+                    screen.innerHTML = 0;
+                    output = "";
+                }
             } 
             else {
                 if (screen.innerHTML == "0.") {
