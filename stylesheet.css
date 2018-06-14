@@ -35,7 +35,7 @@ header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 2em;
+    font-size: 4em;
 }
 
 #clear-buttons {
