@@ -92,7 +92,7 @@ header {
     grid-template-columns: 2fr 1fr;
 }
 
-.num-button {
+.num-button, .decimal-button {
     margin: 3px;
     background: hsl(207, 61%, 64%);
     color: white;
@@ -102,12 +102,12 @@ header {
     font-size: 1.1em;
 }
 
-.num-button:active {
+.num-button:active, .decimal-button:active {
     background: hsl(207, 34%, 44%);
     box-shadow: 0 1px darkgray;
 }
 
-.num-button:focus {
+.num-button:focus, .decimal-button:focus {
     outline: 0;
 }
 
