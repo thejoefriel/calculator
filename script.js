@@ -2,6 +2,7 @@ let screen = document.getElementById("screen");
 let output = "";
 let equal = false;
 
+
 // Insert numbers onto screen
 let num = document.querySelectorAll(".num-button");
 
@@ -73,6 +74,17 @@ allClear.addEventListener("click", function() {
     store = "";
     equal = false;
 })
+
+// Clear operation
+
+let clear = document.getElementById("clear");
+
+clear.addEventListener("click", function() {
+    screen.innerHTML=0;
+    output = "";
+    equal = false;
+})
+
 
 // Backspace operation
 let backspace = document.getElementById("backspace");
