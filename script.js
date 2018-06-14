@@ -41,6 +41,8 @@ allClear.addEventListener("click", function() {
     document.getElementById("screen").style.fontSize = "4em";
     screen.innerHTML = 0;
     output = 0;
+    store = "";
+    equal = false;
 })
 
 // Backspace operation
@@ -63,12 +65,11 @@ let store = "";
 
 for(let i=0; i < op.length; i++) {
     op[i].addEventListener("click", function() {
-        // this stores the value so you can keep adding further values
-        // and operators
-        if(op[i].id != "equals") {
+        // add/subtract/multiply/divide & stores value
+        if(op[i].id == "add" || op[i].id == "subtract" || op[i].id == "multiply" || op[i].id == "divide") {
             store = store.concat(output, this.name);
             output = 0;
-        } 
+        }
         // equals function
             else if(op[i].id == "equals") {
             store = store.concat(output);
@@ -80,9 +81,19 @@ for(let i=0; i < op.length; i++) {
     })
 }
 
-// STILL NEED TO FIX AFTER EQUALS WHEN YOU JUST PRESS NUMBER
+// plus-minus operation
+let plusMinus = document.getElementById("plus-minus")
 
-
+plusMinus.addEventListener("click", function() {
+    if(output.charAt(0) != "-") {
+        output = "-" + screen.innerHTML;
+        screen.innerHTML = output;
+    }
+    else {
+        output = screen.innerHTML.substring(1);
+        screen.innerHTML = output;
+    }
+})
 
 
 
