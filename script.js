@@ -91,16 +91,24 @@ backspace.addEventListener("click", function() {
 // Add/Sub/Multiply/Divide/Equals operation
 let op = document.querySelectorAll(".op-button");
 let store = "";
+let symbolRegex = /\W/g
 
 for(let i=0; i < op.length; i++) {
     op[i].addEventListener("click", function() {
         // add/subtract/multiply/divide & stores value
         if(op[i].id == "add" || op[i].id == "subtract" || op[i].id == "multiply" || op[i].id == "divide") {
-            store = store.concat(output, this.name);
-            output = "";
+            if (this.name == store.charAt(store.length -1)) {
+                false;
+            } else if (this.name != store.charAt(store.length -1) && symbolRegex.test(store.charAt(store.length -1))) {
+                store = store.slice(0,-1).concat(this.name);
+            } 
+            else {
+                store = store.concat(output, this.name);
+                output = "";
+            }
         }
         // equals function
-            else if(op[i].id == "equals") {
+            else if(op[i].id == "equals" && output != "") {
             store = store.concat(output);
             screen.innerHTML = eval(store);
             output = eval(store);
