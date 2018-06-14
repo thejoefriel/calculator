@@ -2,6 +2,62 @@ let screen = document.getElementById("screen");
 let output = "";
 let equal = false;
 
+// keyboard input
+window.addEventListener("keydown", event => {
+
+    // keycodes
+
+    const operatorCodes = {
+        189: "subtract",
+        191: "divide",
+        187: "equals",
+        190: "decimal",
+        8: "backspace",
+        13: "equals"   
+    };
+
+    // keycodes requiring shift
+    const shiftOperatorCodes = {
+        56: "multiply", 
+        187: "add",
+    }
+    
+
+    // numbers
+    if (event.key >= "0" && event.key <= "9") {
+        let list = ['zero', 'one', 'two', 'three', 'four', 'five', 
+                    'six', 'seven', 'eight', 'nine']
+        let name = list[event.key]
+        let button = document.getElementById(name);
+        button.click();
+    }  
+    // operators & decimal
+    else if (event.keyCode >= 189 && event.keyCode <= 191 || event.keyCode == 8 || event.keyCode == 13) {
+        let name = operatorCodes[event.keyCode];
+        let button = document.getElementById(name);
+        button.click();
+    }
+    // shift operators
+    else if (event.keyCode == 56 && event.shiftKey || event.keyCode == 187 && event.shiftKey) {
+        let name = shiftOperatorCodes[event.keyCode];
+        let button = document.getElementById(name);
+        button.click();
+    }
+
+});
+
+
+  /*  if (event.key == 2) {
+      one.style.color = "violet";
+      one.click();
+    }
+  });
+  window.addEventListener("keyup", event => {
+    if (event.key == "1") {
+      one.style.color = "";
+    }
+  }); */
+
 
 // Insert numbers onto screen
 let num = document.querySelectorAll(".num-button");
