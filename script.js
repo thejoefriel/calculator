@@ -114,11 +114,12 @@ for(let i=0; i < op.length; i++) {
 let plusMinus = document.getElementById("plus-minus")
 
 plusMinus.addEventListener("click", function() {
-    if(output.charAt(0) != "-") {
+    if(output == 0) {
+        false;
+    } else if(output.charAt(0) != "-") {
         output = "-" + screen.innerHTML;
         screen.innerHTML = output;
-    }
-    else {
+    } else {
         output = screen.innerHTML.substring(1);
         screen.innerHTML = output;
     }
