@@ -159,6 +159,7 @@ let backspace = document.getElementById("backspace");
 backspace.addEventListener("click", function() {
     if (screen.innerHTML.length == 1) {
         screen.innerHTML = 0;
+        output = "";
     } else {
         output = screen.innerHTML.slice(0, -1);
         screen.innerHTML = output;
