@@ -84,25 +84,35 @@ let num = document.querySelectorAll(".num-button");
                 if (screen.innerHTML == "0.") {
                     output = output.concat(num[i].value);
                     screen.innerHTML = output;
-                } else {
+                } 
+                else if (output.length > 39) {
+                    alert("You have entered the max number of digits allowed");
+                }
+                else {
                     output = screen.innerHTML.concat(num[i].value);
                     screen.innerHTML = output;
                 }
                 
             } 
-            // responsive font size 
-            let count = screen.innerHTML;
-            if (count.length <= 8) {
-                document.getElementById("screen").style.fontSize = "4em";
-            } if (count.length > 8 && output.length <= 12) {
-                document.getElementById("screen").style.fontSize = "3em";
-            } if (count.length > 12 && output.length <= 18) {
-                document.getElementById("screen").style.fontSize = "2em";
-            } if (count.length > 18) {
-                document.getElementById("screen").style.fontSize= "smaller";
-            }
+            outputSize();
         })
     }
+
+// responsive font size output
+    function outputSize () {
+    let count = screen.innerHTML;
+    if (count.length <= 8) {
+        document.getElementById("screen").style.fontSize = "4em";
+    } if (count.length > 8 && count.length <= 12) {
+        document.getElementById("screen").style.fontSize = "3em";
+    } if (count.length > 12 && count.length <= 18) {
+        document.getElementById("screen").style.fontSize = "2em";
+    } if (count.length > 18) {
+        document.getElementById("screen").style.fontSize= "smaller";
+    } 
+}
+
+
 
 // Add decimal
 let decimal = document.getElementById("decimal")
@@ -124,11 +134,11 @@ decimal.addEventListener("click", function() {
 let allClear = document.getElementById("all-clear"); 
 
 allClear.addEventListener("click", function() {
-    document.getElementById("screen").style.fontSize = "4em";
     screen.innerHTML = 0;
     output = "";
     store = "";
     equal = false;
+    outputSize();
 })
 
 // Clear operation
@@ -139,6 +149,7 @@ clear.addEventListener("click", function() {
     screen.innerHTML=0;
     output = "";
     equal = false;
+    outputSize();
 })
 
 
@@ -147,13 +158,12 @@ let backspace = document.getElementById("backspace");
 
 backspace.addEventListener("click", function() {
     if (screen.innerHTML.length == 1) {
-        document.getElementById("screen").style.fontSize = "4em";
         screen.innerHTML = 0;
     } else {
         output = screen.innerHTML.slice(0, -1);
         screen.innerHTML = output;
     }
-    
+    outputSize();
 })
 
 // Add/Sub/Multiply/Divide/Equals operation
@@ -183,6 +193,7 @@ for(let i=0; i < op.length; i++) {
             equal = true;
             store = "";
         }
+        outputSize();
     })
 }
 
@@ -215,6 +226,7 @@ percent.addEventListener("click", function() {
         screen.innerHTML = output/100;
         output = screen.innerHTML;
     }
+    outputSize();
 })
 
 
