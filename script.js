@@ -170,18 +170,19 @@ backspace.addEventListener("click", function() {
 // Add/Sub/Multiply/Divide/Equals operation
 let op = document.querySelectorAll(".op-button");
 let store = "";
-let symbolRegex = /\W/g
+let symbolRegex = /\W/
 
 for(let i=0; i < op.length; i++) {
     op[i].addEventListener("click", function() {
         // add/subtract/multiply/divide & stores value
         if(op[i].id == "add" || op[i].id == "subtract" || op[i].id == "multiply" || op[i].id == "divide") {
-            if (this.name == store.charAt(store.length -1)) {
+            if (this.name === store.charAt(store.length -1)) {
                 false;
-            } else if (this.name != store.charAt(store.length -1) && symbolRegex.test(store.charAt(store.length -1))) {
+            }  
+            else if (this.name != store.charAt(store.length -1) && symbolRegex.test(store.charAt(store.length -1)) && output == "") {
                 store = store.slice(0,-1).concat(this.name);
             } 
-            else {
+            else { 
                 store = store.concat(output, this.name);
                 output = "";
             }
