@@ -140,6 +140,7 @@ allClear.addEventListener("click", function() {
     store = "";
     equal = false;
     outputSize();
+    removeColor();
 })
 
 // Clear operation
@@ -161,6 +162,7 @@ backspace.addEventListener("click", function() {
     if (screen.innerHTML.length == 1) {
         screen.innerHTML = 0;
         output = "";
+        removeColor();
     } else {
         output = screen.innerHTML.slice(0, -1);
         screen.innerHTML = output;
@@ -203,17 +205,14 @@ for(let i=0; i < op.length; i++) {
         // equals function
             else if(op[i].id == "equals") {
                 if (output == "" && symbolRegex.test(store.charAt(store.length -1))) {
-                    let lastOp = document.getElementsByName(store.charAt(store.length -1));
-                    lastOp[0].style.background = "";
                     store = store.slice(0,-1);
                 }
-            let lastOp = document.getElementsByName(store.charAt(store.length -1));
-            lastOp[0].style.background = "";
             store = store.concat(output);
             screen.innerHTML = eval(store);
             output = eval(store);
             equal = true;
             store = "";
+            removeColor();
         } 
         outputSize();
     })
@@ -250,6 +249,15 @@ percent.addEventListener("click", function() {
     }
     outputSize();
 })
+
+// remove coloured operator function even when it's not the last element
+function removeColor() {
+    for(let i=0; i < op.length; i++) {
+        if (op[i].style.background != "") {
+            return op[i].style.background = "";
+        }
+    }
+}
 
 
 
