@@ -36,6 +36,7 @@ window.addEventListener("keydown", event => {
         let name = operatorCodes[event.keyCode];
         let button = document.getElementById(name);
         button.click();
+        event.preventDefault();
     }
     // shift operators
     else if (event.keyCode == 56 && event.shiftKey || event.keyCode == 187 && event.shiftKey) {
@@ -176,25 +177,44 @@ for(let i=0; i < op.length; i++) {
     op[i].addEventListener("click", function() {
         // add/subtract/multiply/divide & stores value
         if(op[i].id == "add" || op[i].id == "subtract" || op[i].id == "multiply" || op[i].id == "divide") {
-            if (this.name === store.charAt(store.length -1)) {
+            if (this.name === store.charAt(store.length -1) && output == "") {
                 false;
             }  
             else if (this.name != store.charAt(store.length -1) && symbolRegex.test(store.charAt(store.length -1)) && output == "") {
+                let lastOp = document.getElementsByName(store.charAt(store.length -1));
+                lastOp[0].style.background = "";
                 store = store.slice(0,-1).concat(this.name);
+                op[i].style.background = "hsl(330, 45%, 40%)";
             } 
             else { 
-                store = store.concat(output, this.name);
-                output = "";
+                if (store.length > 0) {
+                    let lastOp = document.getElementsByName(store.charAt(store.length -1));
+                    lastOp[0].style.background = "";
+                    store = store.concat(output, this.name);
+                    output = "";
+                    op[i].style.background = "hsl(330, 45%, 40%)";
+                } else {
+                    store = store.concat(output, this.name);
+                    output = "";
+                    op[i].style.background = "hsl(330, 45%, 40%)";
+                }
             }
         }
         // equals function
-            else if(op[i].id == "equals" && output != "") {
+            else if(op[i].id == "equals") {
+                if (output == "" && symbolRegex.test(store.charAt(store.length -1))) {
+                    let lastOp = document.getElementsByName(store.charAt(store.length -1));
+                    lastOp[0].style.background = "";
+                    store = store.slice(0,-1);
+                }
+            let lastOp = document.getElementsByName(store.charAt(store.length -1));
+            lastOp[0].style.background = "";
             store = store.concat(output);
             screen.innerHTML = eval(store);
             output = eval(store);
             equal = true;
             store = "";
-        }
+        } 
         outputSize();
     })
 }
