@@ -162,7 +162,6 @@ backspace.addEventListener("click", function() {
     if (screen.innerHTML.length == 1) {
         screen.innerHTML = 0;
         output = "";
-        removeColor();
     } else {
         output = screen.innerHTML.slice(0, -1);
         screen.innerHTML = output;
