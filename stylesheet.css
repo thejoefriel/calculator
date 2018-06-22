@@ -93,14 +93,15 @@ header {
 }
 
 .num-button, .decimal-button {
-    margin: .25rem;
+    height: 95%;
+    width: 95%;
+    margin: auto;
     background: hsl(207, 61%, 64%);
     color: white;
     border-radius: .6rem;
     cursor: pointer;
     box-shadow: 0 0.2rem gray;
     font-size: 1.4rem;
-    height: auto;
 }
 
 .num-button:active, .decimal-button:active {
@@ -141,16 +142,15 @@ header {
 }
 
 .op-button {
-    margin: .25rem;
+    height: 95%;
+    width: 95%;
+    margin: auto;
     background: hsl(330, 60%, 65%);
     color: white;
     border-radius: .6rem;
     cursor: pointer;
     box-shadow: 0 0.2rem gray;
     font-size: 1.4rem;
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
 }
 
 .op-button:active {
@@ -163,7 +163,9 @@ header {
 }
 
 .clear-button {
-    margin: 0.25rem;
+    height: 95%;
+    width: 95%;
+    margin: auto;
     background: hsl(341, 90%, 40%);
     color: white;
     border-radius: 0.6rem;
