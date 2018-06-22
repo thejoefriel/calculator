@@ -24,6 +24,7 @@ header {
     grid-template-columns: 65% 35%;
     background: hsl(207, 74%, 85%);
     border-radius: 1.1rem;
+    min-height: 4rem;
 }
 
 #screen {
@@ -52,16 +53,17 @@ header {
     display: grid;
     grid-template-columns: 5% 90% 5%;
     grid-template-rows: 5% 1fr 1fr 1fr 1fr 5%;
-    position: relative;
     border-radius: 0 0 0 1.1rem;
 }
 
 #operators {
     grid-row-start: 3;
     grid-column-start: 2;
+    background: hsl(207, 74%, 85%);
     display: grid;
     grid-template-columns: 5% 90% 5%;
     grid-template-rows: 5% 1fr 1fr 1fr 1fr 5%;
+    border-radius: 0 0 1.1rem 0;
 }
 
 #num-first-row {
@@ -98,7 +100,7 @@ header {
     margin: auto;
     background: hsl(207, 61%, 64%);
     color: white;
-    border-radius: .6rem;
+    border-radius: 8%;
     cursor: pointer;
     box-shadow: 0 0.2rem gray;
     font-size: 1.4rem;
@@ -147,7 +149,7 @@ header {
     margin: auto;
     background: hsl(330, 60%, 65%);
     color: white;
-    border-radius: .6rem;
+    border-radius: 8%;
     cursor: pointer;
     box-shadow: 0 0.2rem gray;
     font-size: 1.4rem;
@@ -168,7 +170,7 @@ header {
     margin: auto;
     background: hsl(341, 90%, 40%);
     color: white;
-    border-radius: 0.6rem;
+    border-radius: 8%;
     cursor: pointer;
     box-shadow: 0 0.2rem gray;
     font-size: 1.4rem;
