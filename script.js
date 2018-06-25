@@ -1,3 +1,5 @@
+"use strict mode"
+
 let screen = document.getElementById("screen"); 
 let output = "";
 let equal = false;
