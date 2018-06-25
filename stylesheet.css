@@ -1,7 +1,7 @@
 body {
     display: grid;
-    grid-template-columns: .4fr 1fr .4fr;
-    grid-template-rows: 15% 70% 15%;
+    grid-template-columns: .2fr 1fr .2fr;
+    grid-template-rows: 20% 75% 5%;
     width: 100%;
     height: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -14,6 +14,7 @@ header {
     text-align: center;
     margin: auto;
     color: hsl(330, 3%,   24%);
+    font-size: 1rem;
 }
 
 #calc {
@@ -24,7 +25,12 @@ header {
     grid-template-columns: 65% 35%;
     background: hsl(207, 74%, 85%);
     border-radius: 1.1rem;
-    min-height: 4rem;
+    margin: auto;
+    --calc-width: 100%;
+    width: var(--calc-width);
+    height: calc(var(--calc-width) / 1.2);
+    max-width: 500px;
+    
 }
 
 #screen {
@@ -103,7 +109,7 @@ header {
     border-radius: 8%;
     cursor: pointer;
     box-shadow: 0 0.2rem gray;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .num-button:active, .decimal-button:active {
@@ -152,7 +158,11 @@ header {
     border-radius: 8%;
     cursor: pointer;
     box-shadow: 0 0.2rem gray;
-    font-size: 1.4rem;
+    font-size: 1rem;
+}
+
+#plus-minus {
+    font-size: 0.6rem;
 }
 
 .op-button:active {
@@ -173,7 +183,7 @@ header {
     border-radius: 8%;
     cursor: pointer;
     box-shadow: 0 0.2rem gray;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .clear-button:active {
