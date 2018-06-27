@@ -1,7 +1,7 @@
 body {
     display: grid;
     grid-template-columns: .2fr 1fr .2fr;
-    grid-template-rows: 20% 75% 5%;
+    grid-template-rows: 5% 90% 5%;
     width: 100%;
     height: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -30,7 +30,7 @@ header {
     width: var(--calc-width);
     height: calc(var(--calc-width) / 1.2);
     max-width: 500px;
-    
+    z-index: 5;
 }
 
 #screen {
@@ -43,6 +43,16 @@ header {
     justify-content: flex-end;
     align-items: center;
     font-size: 4rem;
+}
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-decoration: none;
+    margin: 0;
+    font-family: inherit;
+    font-size: 1rem;
+    text-align: center;
 }
 
 #clear-buttons {
@@ -201,4 +211,37 @@ header {
 
 #equals:active {
     background: hsl(147, 54%, 32%);
+}
+
+#background {
+    background: hsl(191, 77%, 97%);
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#grass {
+    position: absolute;
+    bottom: 0px;
+    height: 40%;
+    width: 100%;
+    background: hsl(130, 50%, 70%);
+}
+
+.bush {
+    width: 10rem;
+    height: 4rem;
+    background: hsl(130, 30%, 50%);
+    position: relative;
+    top: 10%;
+    left: 10%;
+    border-radius: 25% 25% 0 0;
+}
+
+.bush:after {
+    transform: rotate(35)
 }
