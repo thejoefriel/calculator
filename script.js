@@ -262,3 +262,16 @@ function removeColor() {
 
 
 
+
+const total = 200;
+let space = document.getElementById("space");
+
+for (let i=0; i<total; i++) {
+    let s = document.createElement("new-star");
+    s.className = "star";
+    s.style.top = Math.random() * 100 + '%';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.transform = `scale(${Math.random()})`;
+    s.style.animation = `twinkle ${(Math.random() * 10)+1}s infinite alternate`;
+    space.appendChild(s);
+}
