@@ -50,18 +50,6 @@ window.addEventListener("keydown", event => {
 });
 
 
-  /*  if (event.key == 2) {
-      one.style.color = "violet";
-      one.click();
-    }
-  });
-  window.addEventListener("keyup", event => {
-    if (event.key == "1") {
-      one.style.color = "";
-    }
-  }); */
-
-
 // Insert numbers onto screen
 let num = document.querySelectorAll(".num-button");
 
@@ -251,6 +239,9 @@ percent.addEventListener("click", function() {
     outputSize();
 })
 
+
+
+
 // remove coloured operator function even when it's not the last element
 function removeColor() {
     for(let i=0; i < op.length; i++) {
@@ -263,7 +254,7 @@ function removeColor() {
 
 
 
-const total = 200;
+const total = 150;
 let space = document.getElementById("space");
 
 for (let i=0; i<total; i++) {
@@ -275,3 +266,24 @@ for (let i=0; i<total; i++) {
     s.style.animation = `twinkle ${(Math.random() * 10)+1}s infinite alternate`;
     space.appendChild(s);
 }
+
+// launch button
+
+let launch = document.getElementById("launch");
+let earth = document.getElementById("earth");
+
+launch.addEventListener("click", function() {
+    if(launch.value == "LAUNCH") {
+        space.style.animation = "space-in 10s forwards";
+        earth.style.animation = "earth-out 10s forwards";
+        return launch.setAttribute("value", "LAND");
+    } else if (launch.value == "LAND") {
+        space.style.animation = "space-out 10s forwards";
+        earth.style.animation = "earth-in 10s forwards";
+        return launch.setAttribute("value", "LAUNCH");
+    }
+   
+    
+})
+ 
+

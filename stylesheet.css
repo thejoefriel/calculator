@@ -298,7 +298,7 @@ input {
     background: hsl(191, 77%, 97%);
     height: 100%;
     width: 100%;
-    animation: earth-out 10s;
+    /* animation: earth-out 10s; */
     animation-fill-mode: forwards; 
     margin: 0;
 }
@@ -435,11 +435,11 @@ input {
         hsla(330, 3%, 5%, 100%) 50%, 
         hsla(191, 77%, 97%, 100%) 
     );
-        
+    /* animation: space-in 10s;    */
     height: 200%;
     width: 100%;
-    top: 0;
-    animation: space-in 10s;
+    top: -200%;
+    
 }
 
 .star {
@@ -476,9 +476,27 @@ input {
 
 @keyframes space-in {
     0% {
-        transform: translate(0,-99%);
+        transform: translate(0,0);
     }
     100% {
-        transform: translate(0, 0);
+        transform: translate(0, 100%);
+    }
+}
+
+@keyframes earth-in {
+    0% {
+        transform: translate(0,199%);
+    }
+    100% {
+        transform: translate(0, 0%);
+    }
+}
+
+@keyframes space-out {
+    0% {
+        transform: translate(0,100%);
+    }
+    100% {
+        transform: translate(0,0);
     }
 }
