@@ -215,11 +215,12 @@ for(let i=0; i < op.length; i++) {
 
 // plus-minus operation
 let plusMinus = document.getElementById("plus-minus")
+const display = screen.innerHTML;
 
 plusMinus.addEventListener("click", function() {
     if(output == 0) {
         false;
-    } else if(output.charAt(0) != "-") {
+    } else if(output > 0) {
         output = "-" + screen.innerHTML;
         screen.innerHTML = output;
     } else {
