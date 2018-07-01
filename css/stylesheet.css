@@ -422,8 +422,7 @@ input {
     right: 15%;
     top: 5%;
     background: yellow;
-    border-radius: 100%;
-    transform: translateZ(90px) scale(1.2);
+    border-radius: 100%;  
 }
 
 .clouds {
@@ -480,8 +479,8 @@ input {
 #space {
     position: absolute;
     background: linear-gradient(
-        hsla(330, 3%, 5%, 100%) 50%, 
-        hsla(191, 77%, 97%, 100%) 
+        hsl(330, 3%, 5%) 50%, 
+        hsl(191, 77%, 97%) 
     );
     /* animation: space-in 10s;    */
     height: 200%;
