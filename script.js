@@ -187,7 +187,11 @@ for(let i=0; i < op.length; i++) {
                     output = "";
                     op[i].style.background = "hsl(330, 45%, 40%)";
                 } else {
-                    store = store.concat(output, this.name);
+                    if (output == "") {
+                        store = store.concat("0", this.name);
+                    } else {
+                        store = store.concat(output, this.name);
+                    }
                     output = "";
                     op[i].style.background = "hsl(330, 45%, 40%)";
                 }
