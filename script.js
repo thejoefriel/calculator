@@ -92,13 +92,15 @@ let num = document.querySelectorAll(".num-button");
 // responsive font size output
     function outputSize () {
     let count = screen.innerHTML;
-    if (count.length <= 8) {
+    if (count.length <= 5) {
         document.getElementById("screen").style.fontSize = "4em";
-    } if (count.length > 8 && count.length <= 12) {
+    } if (count.length > 5 && count.length <= 8) {
         document.getElementById("screen").style.fontSize = "3em";
-    } if (count.length > 12 && count.length <= 18) {
+    } if (count.length > 8 && count.length <= 14) {
         document.getElementById("screen").style.fontSize = "2em";
-    } if (count.length > 18) {
+    } if (count.length > 14 && count.length <= 20) {
+        document.getElementById("screen").style.fontSize= "1em";
+    } if (count.length > 20) {
         document.getElementById("screen").style.fontSize= "smaller";
     } 
 }
